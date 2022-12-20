@@ -23,8 +23,6 @@ const Cryptocurrencies = ({simplified}) => {
   
   }, [cryptosList, searchTerm])
 
-  console.log(cryptos);
-
 
   return (
     <>
