@@ -7,6 +7,8 @@ import { useGetCryptosQuery } from '../services/cryptoApi'
 import { useGetCryptoNewsQuery } from '../services/cryptoNewsApi'
 import { useState } from 'react'
 
+import Loader from './Loader'
+
 const {Text, Title } = Typography
 
 const {Option} = Select
@@ -20,7 +22,7 @@ const News = ({simplified}) => {
   const {data} = useGetCryptosQuery(100);
   const {data: cryptoNews} = useGetCryptoNewsQuery({newsCategory, count: simplified ? 6 : 12})
   
- if(!cryptoNews?.value) return 'loading...';
+ if(!cryptoNews?.value) return <Loader/>;
 
   return (
     <Row gutter={[24,24]}>
@@ -34,7 +36,7 @@ const News = ({simplified}) => {
         filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
         >
           <Option value="Cryptocurrency">Cryptocurrency</Option>
-          {data?.data?.coins.map((coin) => <Option value={coin.name}>{coin.name}</Option>)}
+          {data?.data?.coins.map((coin, idx) => <Option value={coin.name} key={`${coin.name}-${idx}`}>{coin.name}</Option>)}
         </Select>
     </Col>
   )}
