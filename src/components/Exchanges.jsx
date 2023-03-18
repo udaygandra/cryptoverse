@@ -3,12 +3,13 @@ import { Row, Col, InputNumber, Button } from 'antd'
 import SwapOutlined from '@ant-design/icons/SwapOutlined'
 import { useGetCryptosQuery } from '../services/cryptoApi'
 import SelectAfter from './SelectAfter'
+import Loader from './Loader'
 
 
 
 const Exchanges = () => {
 
-  const {data} = useGetCryptosQuery(100)
+  const {data, isFetching} = useGetCryptosQuery(100)
   const [cryptoOptions, setCryptoOptions] = useState(data?.data?.coins)
   const [fromCrypto, setFromCrypto]= useState()
   const [toCrypto, setToCrypto]= useState()
@@ -51,7 +52,7 @@ const Exchanges = () => {
     setAmountInFromCrypto(false)
   }
 
-  
+  // if(!data) return <Loader/>;
   return (
  <div>
       <Row gutter={[24,24]}>
