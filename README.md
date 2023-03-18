@@ -3,6 +3,8 @@ Open [https://cryptoverse-alpha.vercel.app/](https://cryptoverse-alpha.vercel.ap
 
 
 Cryptoverse
+
+
 Cryptoverse is a React-based cryptocurrency app that allows you to track prices, statistics, news, and calculate exchanges for various cryptocurrencies. The app was built using advanced React best practices, state management using Redux Toolkit, UI creation using Ant Design, and charts using Chart.js. Data is fetched from multiple sources using RapidAPI.
 
 Features
